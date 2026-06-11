@@ -1,0 +1,14 @@
+[project]
+name = "backend-v2"
+version = "0.1.0"
+description = "A scalable, modified backend for the IRD's website, built with FastAPI and MongoDB."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.136.3",
+    "pymongo>=4.17.0",
+    "passlib>=1.7.4",
+    "PyJWT>=2.13.0",
+    "tzlocal>=5.3.1",
+]
+
