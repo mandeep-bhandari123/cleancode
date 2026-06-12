@@ -1,0 +1,9 @@
+class UserALreadyExistsError(Exception):
+    ...
+
+class InvalidCredentialsError(Exception):
+    ...
+
+class UserNotFoundError(Exception):
+    ...
+

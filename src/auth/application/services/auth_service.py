@@ -1,4 +1,4 @@
-from src.auth.application.interfaces.password_hasher import AbstractPasswordHasher
+from src.auth.application.ports.password_hasher import AbstractPasswordHasher
 
 class AuthService:
     def __init__(self, hasher:AbstractPasswordHasher):
