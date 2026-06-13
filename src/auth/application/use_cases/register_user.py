@@ -3,7 +3,7 @@ from ..ports.password_hasher import AbstractPasswordHasher
 from src.auth.domain.repository import UserRepository
 from src.auth.domain.entities import User
 
-class ResisterUser:
+class RegisterUser:
     def __init__(self, repo:UserRepository, hasher:AbstractPasswordHasher):
         self.repo = repo
         self.hasher = hasher
