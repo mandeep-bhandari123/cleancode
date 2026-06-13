@@ -1,7 +1,7 @@
 [project]
-name = "backend-v2"
+name = "cleancode"
 version = "0.1.0"
-description = "A scalable, modified backend for the IRD's website, built with FastAPI and MongoDB."
+description = "Clean code Architecture"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
