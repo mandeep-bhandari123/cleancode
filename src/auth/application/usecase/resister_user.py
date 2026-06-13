@@ -13,7 +13,7 @@ class ResisterUser:
             raise UserALreadyExistsError()
         else:
             hashed_password = self.hasher.hash(plain_password=password)
-            user = User(email=email , password=hashed_password)
+            user = User(email=email , password_hash=hashed_password)
             saved_user = await self.repo.create_user(user)
             return saved_user
 

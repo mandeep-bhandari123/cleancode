@@ -3,7 +3,7 @@ from uuid import UUID
 @dataclass
 class User:
     email:str
-    password:str
+    password_hash:str
 
 @dataclass
 class UserInDB(User):
