@@ -13,3 +13,7 @@ class UserOut(BaseModel):
     email:EmailStr
 
     model_config = {"from_attributes": True}
+
+class DeleteResuest(BaseModel):
+    email:EmailStr
+    password:str

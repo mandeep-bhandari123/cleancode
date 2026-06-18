@@ -22,7 +22,7 @@ class UserRepository(ABC):
     #     ...
 
 
-    # @abstractmethod
-    # async def delete_user(self, user_id: UUID )->None:
-    #     """Delete User"""
-    #     ...
+    @abstractmethod
+    async def delete_user(self, user_id: UUID )->None:
+        """Delete User"""
+        ...

@@ -1,13 +1,13 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from .interface.auth_router import router as auth_router
-from .infrastructure.database import init_db
-from .interface.exception_handlers import (
+from .auth.interface.auth_router import router as auth_router
+from .auth.infrastructure.database import init_db
+from .auth.interface.exception_handlers import (
     user_already_exists_handler,
     invalid_credentials_handler,
     user_not_found_handler
 )
-from .domain.exceptions import (
+from .auth.domain.exceptions import (
     UserAlreadyExistsError,
     InvalidCredentialsError,
     UserNotFoundError

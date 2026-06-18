@@ -17,3 +17,4 @@ class UserService:
         if existing_user:
             raise Exception("User with same email already exists")
 
+  

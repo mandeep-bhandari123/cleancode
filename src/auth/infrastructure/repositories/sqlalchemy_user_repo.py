@@ -1,8 +1,10 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select , delete
 from ...domain.entities import User , UserInDB, UserOut
 from ...domain.repository import UserRepository
 from ...infrastructure.orm.models import UserModel
+from uuid import UUID
+
 
 class SQLAlchemyUserRepository(UserRepository):
     def __init__(self , session:AsyncSession):
@@ -34,3 +36,11 @@ class SQLAlchemyUserRepository(UserRepository):
             password_hash=db_user.password_hash,
         )
 
+    async def delete_user(self, email:str )->dict | None:
+        await self.session.execute(
+            delete(UserModel).where(UserModel.email == email)
+        )
+
+        await self.session.commit()
+
+        return {"Message":"User already deleted"}
