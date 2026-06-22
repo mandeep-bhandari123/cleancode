@@ -24,4 +24,5 @@ async def get_delete_use_case(session :AsyncSession = Depends(get_db)):
 
 async def get_update_use_case(session :AsyncSession = Depends(get_db)):
     repo = SQLAlchemyUserRepository(session=session)
-    return UpdateUser(repo= repo)
+    hasher = BcryptPasswordHasher()
+    return UpdateUser(repo= repo  , hasher= hasher)

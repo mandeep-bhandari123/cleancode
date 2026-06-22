@@ -19,6 +19,5 @@ class DeleteResuest(BaseModel):
     password:str
 
 class UpdateRequest(BaseModel):
-    old_email:EmailStr
-    new_email:EmailStr
+    email:EmailStr
     password:str

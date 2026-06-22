@@ -45,10 +45,17 @@ class SQLAlchemyUserRepository(UserRepository):
 
         return {"Message":"User already deleted"}
 
-    async def update_user(self, user:User)->UserInDB |None:
-        db_user = await self.session.execute(
-            update(UserModel).where(UserModel.email == user.email).values(email=user.email, password_hash=user.password_hash)
+    async def update_user(self, user: User) -> UserInDB | None:
+        result = await self.session.execute(
+            select(UserModel).where(UserModel.email == user.email)
         )
+        db_user = result.scalar_one_or_none()
+        if not db_user:
+            return None
+
+        db_user.email = user.email
+        db_user.password_hash = user.password_hash
+
         await self.session.commit()
         await self.session.refresh(db_user)
 
@@ -57,4 +64,3 @@ class SQLAlchemyUserRepository(UserRepository):
             email=db_user.email,
             password_hash=db_user.password_hash,
         )
-

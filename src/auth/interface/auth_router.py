@@ -34,8 +34,7 @@ async def delete_user(
 
 @router.put("/update", status_code=status.HTTP_200_OK)
 async def update_user(
-    request:UpdateRequest,
-    use_case :UpdateUser = Depends(get_update_use_case)
+    request: UpdateRequest,
+    use_case: UpdateUser = Depends(get_update_use_case)
 ):
-    
-    await use_case.execute(request.old_email)
+    return await use_case.execute(request.email, request.password)
